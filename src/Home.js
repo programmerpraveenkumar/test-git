@@ -73,7 +73,7 @@ function Home(){
                     return (
         <>
             <Header/>
-            <h2 className={myclass}>my city is test {cityName}</h2>
+            <h2 className={myclass}>my city is test test {cityName}</h2>
                         
               <h1>this is home {firstName}</h1>
               <button onClick={()=>changeCssClass('brown')}>Brown</button>
