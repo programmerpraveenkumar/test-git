@@ -10,21 +10,16 @@ function Home(){
     //useState();//hooks to find the variable's change and update in ui
     //variablename,settermethod
     const[cityName,setCityName]=useState("mumbai");
-    const[companyList,setCompanyList]=useState(['tcs','hcl','hexaware','infosys']);
-    const [studentList,setStudentList] = useState([]);
+    // const [studentList,setStudentList] = useState([]);
     const [name,setName] = useState();
-    const [mobile,setMobile] = useState();
+    // const [mobile,setMobile] = useState();
     const [myclass,setMyClass] = useState('myheading');
     const [status,setStatus] = useState(true);
     //create boolean variable 
 
 
     let nameList = ['asdf','sdaf','asdfsdaf','awdsf']
-    let siteList = ['https://www.google.com', 
-                    'https://www.youtube.com',
-                    'https://www.blogger.com',  
-                    'https://www.googleimages.com' ,
-                    'https://www.linkedin.com']
+  
                     
     const printMessage=()=>{
         alert("clicked from button")
@@ -38,7 +33,7 @@ function Home(){
             const response = await fetch("Your spring Api Url");
             const json = await response.json();
             console.log(json);
-            setStudentList(json);
+            // setStudentList(json);
             if(response.ok){
                 navigate("/home")
             }else{
@@ -92,7 +87,6 @@ function Home(){
            <button onClick={getALLStudents}>click to get Students</button>
            <h1>Create student</h1>
            <input type="text" onChange={(e)=>setName(e.target.value)} placeholder="Enter Name"/>
-           <input type="text" onChange={(e)=>setMobile(e.target.value)} placeholder="Enter Mobile"/>
            <button onClick={createStudent}>Create Students</button>
            <Footer/>
         </>

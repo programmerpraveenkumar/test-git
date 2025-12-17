@@ -1,9 +1,8 @@
-import logo from './logo.svg';
 import './App.css';
 
 import Home from './Home'
 import {About} from './About'
-import { createBrowserRouter,RouterProvider, useNavigate} from 'react-router';
+import { createBrowserRouter,RouterProvider} from 'react-router';
 const router = createBrowserRouter([
    {
     path: "/",
@@ -19,7 +18,6 @@ const router = createBrowserRouter([
 ]);
 
 function App() {
-  // const navigate = useNavigate()
   return (
    
        <RouterProvider router={router} />
