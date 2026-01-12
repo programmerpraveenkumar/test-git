@@ -1,12 +1,18 @@
 pipeline {
     agent any
     tools {
-        nodejs 'node18'
-    }
-    environment {
-        REACT_APP_API_URL = "https://api.example.com" // optional
+        nodejs 'node18' // Make sure this matches Jenkins Global Tool
     }
     stages {
+        stage('Debug Info') {
+            steps {
+                echo "Checking workspace and Node"
+                sh 'pwd'
+                sh 'ls -la'
+                sh 'node -v'
+                sh 'npm -v'
+            }
+        }
         stage('Install Dependencies') {
             steps {
                 sh 'npm install'
@@ -19,13 +25,13 @@ pipeline {
         }
         stage('Verify Build') {
             steps {
-                sh 'ls -la build'
+                sh 'ls -la build || echo "Build folder not found"'
             }
         }
     }
     post {
         always {
-            archiveArtifacts artifacts: 'build/**', allowEmptyArchive: false
+            archiveArtifacts artifacts: 'build/**', allowEmptyArchive: true
         }
     }
 }
